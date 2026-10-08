@@ -48,14 +48,8 @@ export const Register = () => {
     setError('');
 
     try {
-      const user = await register(formData);
-      if (user?.role === 'charity') {
-        navigate('/dashboard/charity');
-      } else if (user?.role === 'volunteer') {
-        navigate('/dashboard/volunteer');
-      } else {
-        navigate('/dashboard/donor');
-      }
+      await register(formData);
+      navigate('/');
     } catch (err) {
       setError(err.message || 'Registration failed. Please check your information and try again.');
     } finally {

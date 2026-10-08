@@ -47,25 +47,8 @@ export const Login = () => {
     setError('');
 
     try {
-      const loggedUser = await login(cleanEmail, cleanPassword);
-      if (redirectPath) {
-        navigate(redirectPath);
-      } else {
-        switch (loggedUser?.role) {
-          case 'admin':
-            navigate('/dashboard/admin');
-            break;
-          case 'charity':
-            navigate('/dashboard/charity');
-            break;
-          case 'volunteer':
-            navigate('/dashboard/volunteer');
-            break;
-          default:
-            navigate('/dashboard/donor');
-            break;
-        }
-      }
+      await login(cleanEmail, cleanPassword);
+      navigate('/');
     } catch (err) {
       setError(err.message || 'Invalid email or password. Please try again.');
     } finally {
