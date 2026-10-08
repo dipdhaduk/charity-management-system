@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const API_URL = 'https://charity-management-system-pw09.onrender.com/api';
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://charity-management-system-pw09.onrender.com/api',
+  baseURL: API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
