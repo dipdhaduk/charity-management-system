@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { User, Building2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Building2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import authService from '../services/authService';
 import { charityService } from '../services/adminService';

@@ -9,8 +9,6 @@ import {
   Send,
   X,
   AlertCircle,
-  Briefcase,
-  Sparkles,
 } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import StatCard from '../components/StatCard';

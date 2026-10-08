@@ -8,11 +8,6 @@ import {
   Calendar,
   ShieldCheck,
   X,
-  HandHeart,
-  Clock,
-  CheckCircle2,
-  AlertCircle,
-  ArrowRight,
 } from 'lucide-react';
 import Sidebar from '../components/Sidebar';
 import StatCard from '../components/StatCard';

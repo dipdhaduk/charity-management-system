@@ -26,7 +26,6 @@ import {
 import Sidebar from '../components/Sidebar';
 import StatCard from '../components/StatCard';
 import Loader from '../components/Loader';
-import EmptyState from '../components/EmptyState';
 import { adminService } from '../services/adminService';
 
 const PIE_COLORS = ['#0b6b4d', '#f2b632', '#2563eb', '#8b5cf6', '#ec4899'];
