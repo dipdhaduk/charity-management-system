@@ -27,9 +27,18 @@ export const Login = () => {
 
   const redirectPath = location.state?.from || null;
 
+  const handleQuickLogin = (demoEmail) => {
+    setEmail(demoEmail);
+    setPassword('password123');
+    setError('');
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !password) {
+    const cleanEmail = email.trim();
+    const cleanPassword = password.trim();
+
+    if (!cleanEmail || !cleanPassword) {
       setError('Please provide your email address and password.');
       return;
     }
@@ -38,7 +47,7 @@ export const Login = () => {
     setError('');
 
     try {
-      const loggedUser = await login(email, password);
+      const loggedUser = await login(cleanEmail, cleanPassword);
       if (redirectPath) {
         navigate(redirectPath);
       } else {
@@ -138,6 +147,47 @@ export const Login = () => {
             <p className="text-xs sm:text-sm text-muted">
               Enter your credentials to access your dashboard and saved receipts.
             </p>
+          </div>
+
+          {/* Quick Demo Accounts */}
+          <div className="p-3 bg-soft/50 rounded-xl border border-line space-y-2">
+            <div className="flex items-center justify-between text-xs">
+              <span className="font-semibold text-ink flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-brand" />
+                Quick Demo Login (1-Click Fill)
+              </span>
+              <span className="text-[11px] text-muted">Pass: <code className="font-mono font-bold text-brand">password123</code></span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5">
+              <button
+                type="button"
+                onClick={() => handleQuickLogin('admin@charityhub.org')}
+                className="py-1.5 px-2 bg-surface hover:bg-brand/10 hover:border-brand/40 border border-line rounded-lg text-[11px] font-bold text-ink transition cursor-pointer text-center"
+              >
+                👑 Admin
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickLogin('info@hopefoundation.org')}
+                className="py-1.5 px-2 bg-surface hover:bg-brand/10 hover:border-brand/40 border border-line rounded-lg text-[11px] font-bold text-ink transition cursor-pointer text-center"
+              >
+                🏢 Charity
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickLogin('priya.sharma@example.com')}
+                className="py-1.5 px-2 bg-surface hover:bg-brand/10 hover:border-brand/40 border border-line rounded-lg text-[11px] font-bold text-ink transition cursor-pointer text-center"
+              >
+                💖 Donor
+              </button>
+              <button
+                type="button"
+                onClick={() => handleQuickLogin('arjun.singh@example.com')}
+                className="py-1.5 px-2 bg-surface hover:bg-brand/10 hover:border-brand/40 border border-line rounded-lg text-[11px] font-bold text-ink transition cursor-pointer text-center"
+              >
+                🤝 Volunteer
+              </button>
+            </div>
           </div>
 
           {error && (
